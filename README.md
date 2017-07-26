@@ -20,6 +20,12 @@ const ignorable = require('ignorable')
 
 console.log(ignorable('readme.md'))
 //> true
+
+console.log(ignorable('test.js'))
+//> true
+
+console.log(ignorable.safe('test.js'))
+//> false
 ```
 <!--/@-->
 
@@ -27,7 +33,11 @@ console.log(ignorable('readme.md'))
 
 ### `ignorable(filename)`
 
+Returns whether `true` if the file does not influence the functionality of the package.
+
 ### `ignorable.safe(filename)`
+
+Same as `ignorable()` but does not return `true` for example files and test files.
 
 ## License
 
