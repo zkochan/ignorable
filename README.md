@@ -1,5 +1,7 @@
 # ignorable
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zkochan/ignorable.svg)](https://greenkeeper.io/)
+
 > Detects whether a file in a package can be ignored
 
 <!--@shields('npm', 'travis')-->
