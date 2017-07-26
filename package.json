@@ -1,0 +1,49 @@
+{
+  "name": "ignorable",
+  "version": "0.0.0",
+  "description": "Detects whether a file in a package can be ignored",
+  "keywords": [
+    "ignore"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "ignorable.json"
+  ],
+  "scripts": {
+    "build": "node build",
+    "md": "mos",
+    "pretest": "npm run build",
+    "test": "node test && mos t",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zkochan/ignorable.git"
+  },
+  "author": {
+    "name": "Zoltan Kochan",
+    "email": "zoltankochan@gmail.com",
+    "url": "https://www.kochan.io/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zkochan/ignorable/issues"
+  },
+  "homepage": "https://github.com/zkochan/ignorable#readme",
+  "devDependencies": {
+    "markdown-extensions": "^1.1.0",
+    "mos": "^2.0.0-alpha.3",
+    "mos-plugin-readme": "^1.0.4",
+    "tape": "^4.7.0",
+    "write-json-file": "^2.2.0"
+  },
+  "mos": {
+    "plugins": [
+      "readme"
+    ],
+    "installation": {
+      "useShortAlias": true
+    }
+  }
+}
