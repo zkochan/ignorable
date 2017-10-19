@@ -3,6 +3,7 @@ const test = require('tape')
 const ignorable = require('.')
 
 test('ignorable()', t => {
+  t.throws(() => ignorable(1), 'Expected `filename` to be of type `string`, got `number`')
   t.true(ignorable('README.md'))
   t.true(ignorable('readme.md'))
   t.true(ignorable('readme.markdown'))
@@ -15,6 +16,7 @@ test('ignorable()', t => {
 })
 
 test('ignorable.safe()', t => {
+  t.throws(() => ignorable(1), 'Expected `filename` to be of type `string`, got `number`')
   t.true(ignorable.safe('README.md'))
   t.true(ignorable.safe('readme.md'))
   t.true(ignorable.safe('readme.markdown'))

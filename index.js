@@ -19,6 +19,10 @@ module.exports = ignorable
 module.exports.safe = safe
 
 function ignorable (filename) {
+  if (typeof filename !== 'string') {
+    throw new TypeError(`Expected \`filename\` to be of type \`string\`, got \`${typeof filename}\``);
+  }
+
   filename = filename.toLowerCase()
   const dir = _getRootDir(filename)
 
@@ -43,6 +47,10 @@ function _getRootDir (filename) {
 }
 
 function safe (filename) {
+  if (typeof filename !== 'string') {
+    throw new TypeError(`Expected \`filename\` to be of type \`string\`, got \`${typeof filename}\``);
+  }
+
   filename = filename.toLowerCase()
   const dir = _getRootDir(filename)
   return _safe(filename, dir)
