@@ -2201,6 +2201,7 @@ packages:
     resolution:
       integrity: sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
 registry: 'https://registry.npmjs.org/'
+shrinkwrapMinorVersion: 1
 shrinkwrapVersion: 3
 specifiers:
   markdown-extensions: ^1.1.0
