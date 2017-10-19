@@ -3,6 +3,10 @@ const safeIgnoreList = require('./safeIgnoreList.json')
 const unsafeIgnoreList = require('./unsafeIgnoreList.json')
 
 const safeIgnorableFiles = new Set(safeIgnoreList)
+const safeIgnorableDirs = new Set([
+  '.vscode',
+  '.github',
+])
 const unsafeIgnorableFiles = new Set(unsafeIgnoreList)
 const unsafeIgnorableDirs = new Set([
   'example',
@@ -16,14 +20,15 @@ module.exports.safe = safe
 
 function ignorable (filename) {
   filename = filename.toLowerCase()
-  if (safe(filename)) {
+  const dir = _getRootDir(filename)
+
+  if (_safe(filename, dir)) {
     return true
   }
   if (unsafeIgnorableFiles.has(filename)) {
     return true
   }
 
-  const dir = _getRootDir(filename)
   if (!dir) return false
 
   return unsafeIgnorableDirs.has(dir)
@@ -38,5 +43,11 @@ function _getRootDir (filename) {
 }
 
 function safe (filename) {
-  return safeIgnorableFiles.has(filename.toLowerCase())
+  filename = filename.toLowerCase()
+  const dir = _getRootDir(filename)
+  return _safe(filename, dir)
+}
+
+function _safe (filename, dir) {
+  return Boolean(safeIgnorableFiles.has(filename) || dir && safeIgnorableDirs.has(dir))
 }

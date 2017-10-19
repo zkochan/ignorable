@@ -22,6 +22,7 @@ test('ignorable.safe()', t => {
   t.false(ignorable.safe('test/index.js'))
   t.false(ignorable.safe('example/index.js'))
   t.false(ignorable.safe('example\\index.js'))
+  t.true(ignorable.safe('.github/ISSUE_TEMPLATE.md'))
 
   t.end()
 })
