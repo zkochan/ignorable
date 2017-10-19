@@ -10,7 +10,9 @@
   "files": [
     "index.js",
     "index.d.ts",
-    "ignorable.json"
+    "ignorable.json",
+    "safeIgnoreList.json",
+    "unsafeIgnoreList.json"
   ],
   "scripts": {
     "build": "node build",
