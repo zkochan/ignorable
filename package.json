@@ -35,8 +35,8 @@
     "markdown-extensions": "^1.1.0",
     "mos": "^2.0.0-alpha.3",
     "mos-plugin-readme": "^1.0.4",
-    "tape": "^4.7.0",
-    "write-json-file": "^2.2.0"
+    "tape": "^4.8.0",
+    "write-json-file": "^2.3.0"
   },
   "mos": {
     "plugins": [

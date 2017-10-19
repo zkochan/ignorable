@@ -2,8 +2,8 @@ devDependencies:
   markdown-extensions: 1.1.0
   mos: 2.0.0-alpha.3
   mos-plugin-readme: 1.0.4
-  tape: 4.7.0
-  write-json-file: 2.2.0
+  tape: 4.8.0
+  write-json-file: 2.3.0
 packages:
   /@zkochan/async-replace/0.4.1:
     dependencies:
@@ -1407,10 +1407,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-NLymRKgPlPi6QaD50JhOr2Os8U0=
-  /object-inspect/1.2.2:
+  /object-inspect/1.3.0:
     dev: true
     resolution:
-      integrity: sha1-yCEV5PzIiK6hTWTCLk8X9qcNXlo=
+      integrity: sha512-OHHnLgLNXpM++GnJRyyhbr2bwl3pPVm4YvaraHrRvDt/N3r+s/gDVHciA7EJBTkijKXj61ssgSAikq1fb0IBRg==
   /object-keys/1.0.11:
     dev: true
     engines:
@@ -1512,6 +1512,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-7RQaasBDqEnqWISY59yosVMw6Qw=
+  /pify/3.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
   /pinkie-promise/2.0.1:
     dependencies:
       pinkie: 2.0.4
@@ -1734,12 +1740,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-IDEU2CrSxe2ejgQRs5ModeiJ6Xs=
-  /resolve/1.3.3:
+  /resolve/1.4.0:
     dependencies:
       path-parse: 1.0.5
     dev: true
     resolution:
-      integrity: sha1-ZVkHw0aahoDcLeOidaj91paR8OU=
+      integrity: sha512-aW7sVKPufyHqOmyyLzg/J+8606v5nevBgaliIlV7nUpVMsDnoBGV/cbSLNjZAg9q0Cfd/+easKVKQ8vOu8fn1Q==
   /resumer/0.0.0:
     dependencies:
       through: 2.3.8
@@ -1818,6 +1824,14 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-RBttTTRnmPG05J6JIK37oOVD+a0=
+  /sort-keys/2.0.0:
+    dependencies:
+      is-plain-obj: 1.1.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-ZYU1WEhh7JfXMNbPQYIuH1ZoQSg=
   /source-map-support/0.3.3:
     dependencies:
       source-map: 0.1.32
@@ -1980,7 +1994,7 @@ packages:
     dev: true
     resolution:
       integrity: sha1-K7PqGb3J9SJSF7P5fL95hsxMbow=
-  /tape/4.7.0:
+  /tape/4.8.0:
     dependencies:
       deep-equal: 1.0.1
       defined: 1.0.0
@@ -1990,14 +2004,14 @@ packages:
       has: 1.0.1
       inherits: 2.0.3
       minimist: 1.2.0
-      object-inspect: 1.2.2
-      resolve: 1.3.3
+      object-inspect: 1.3.0
+      resolve: 1.4.0
       resumer: 0.0.0
       string.prototype.trim: 1.1.2
       through: 2.3.8
     dev: true
     resolution:
-      integrity: sha512-ePzu2KfZYVtq0v+KKGxBJ9HJWYZ4MaQWeGabD+KpVdMKRen3NJPf6EiwA5BxfMkhQPGtCwnOFWelcB39bhOUng==
+      integrity: sha512-TWILfEnvO7I8mFe35d98F6T5fbLaEtbFTG/lxWvid8qDfFTxt19EBijWmB4j3+Hoh5TfHE2faWs73ua+EphuBA==
   /the-argv/1.0.0:
     dev: true
     resolution:
@@ -2147,19 +2161,19 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-LV3+lqvDyIkFfJOXGqQAXvtUgTQ=
-  /write-json-file/2.2.0:
+  /write-json-file/2.3.0:
     dependencies:
       detect-indent: 5.0.0
       graceful-fs: 4.1.11
       make-dir: 1.0.0
-      pify: 2.3.0
-      sort-keys: 1.1.2
+      pify: 3.0.0
+      sort-keys: 2.0.0
       write-file-atomic: 2.1.0
     dev: true
     engines:
       node: '>=4'
     resolution:
-      integrity: sha1-UYYlBruzthnu+reFnx/WxtBTCHY=
+      integrity: sha1-K2TIozAE1UuGmMdtWFp3zrYdoy8=
   /write-pkg/1.0.0:
     dependencies:
       write-json-file: 1.2.0
@@ -2187,11 +2201,10 @@ packages:
     resolution:
       integrity: sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
 registry: 'https://registry.npmjs.org/'
-shrinkwrapMinorVersion: 1
 shrinkwrapVersion: 3
 specifiers:
   markdown-extensions: ^1.1.0
   mos: ^2.0.0-alpha.3
   mos-plugin-readme: ^1.0.4
-  tape: ^4.7.0
-  write-json-file: ^2.2.0
+  tape: ^4.8.0
+  write-json-file: ^2.3.0
