@@ -19,6 +19,9 @@
     "test": "node test && mos t",
     "prepublishOnly": "npm run build"
   },
+  "engines": {
+    "node": ">=4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zkochan/ignorable.git"
