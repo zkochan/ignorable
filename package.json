@@ -15,9 +15,9 @@
   ],
   "scripts": {
     "build": "node build",
-    "md": "mos",
+    "md": "preview && mos",
     "pretest": "npm run build",
-    "test": "node test && mos t",
+    "test": "preview && node test && mos t",
     "prepublishOnly": "npm run build"
   },
   "engines": {
@@ -42,6 +42,7 @@
     "markdown-extensions": "^1.1.0",
     "mos": "^2.0.0-alpha.3",
     "mos-plugin-readme": "^1.0.4",
+    "package-preview": "^1.0.0",
     "tape": "^4.8.0",
     "write-json-file": "^2.3.0"
   },

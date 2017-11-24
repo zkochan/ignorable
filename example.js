@@ -1,4 +1,4 @@
-const ignorable = require('.')
+const ignorable = require('ignorable')
 
 console.log(ignorable('readme.md'))
 

@@ -1,6 +1,6 @@
 'use strict'
 const test = require('tape')
-const ignorable = require('.')
+const ignorable = require('ignorable')
 
 test('ignorable()', t => {
   t.throws(() => ignorable(1), 'Expected `filename` to be of type `string`, got `number`')
