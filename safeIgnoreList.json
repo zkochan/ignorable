@@ -1,6 +1,7 @@
 [
   ".appveyor.yml",
   ".babelrc",
+  ".bowerrc",
   ".coveralls.yml",
   ".documentup.json",
   ".ds_store",
@@ -15,6 +16,7 @@
   ".gitmodules",
   ".istanbul.yml",
   ".jshintrc",
+  ".keep",
   ".npmignore",
   ".npmrc",
   ".tern-project",

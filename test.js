@@ -20,10 +20,9 @@ test('ignorable.safe()', t => {
   t.true(ignorable.safe('README.md'))
   t.true(ignorable.safe('readme.md'))
   t.true(ignorable.safe('readme.markdown'))
-  t.false(ignorable.safe('example.js'))
-  t.false(ignorable.safe('test/index.js'))
-  t.false(ignorable.safe('example/index.js'))
-  t.false(ignorable.safe('example\\index.js'))
+  t.false(ignorable.safe('LICENSE'))
+  t.false(ignorable.safe('LICENSE.txt'))
+  t.false(ignorable.safe('website/index.html'))
   t.true(ignorable.safe('.github/ISSUE_TEMPLATE.md'))
 
   t.end()

@@ -13,15 +13,15 @@ const safeIgnorableDirs = new Set([
   '.circleci',
   'doc',
   'docs',
-])
-const unsafeIgnorableFiles = new Set(unsafeIgnoreList)
-const unsafeIgnorableDirs = new Set([
   'example',
   'examples',
   'test',
   'tests',
   '__tests__',
   'powered-test',
+])
+const unsafeIgnorableFiles = new Set(unsafeIgnoreList)
+const unsafeIgnorableDirs = new Set([
   'website',
 	'images',
   'assets',

@@ -18,6 +18,7 @@ const safeIgnoreList = [
   '.gitattributes',
   '.gitmodules',
   '.gitkeep',
+  '.keep',
 
   // Package managers
   '.npmrc',
@@ -32,6 +33,7 @@ const safeIgnoreList = [
   '.yarn-integrity',
   '.yarnclean',
   'bower.json',
+  '.bowerrc',
   'npm-debug.log',
 
   // Linters
@@ -86,6 +88,9 @@ const unsafeIgnoreList = [
   'licence',
   'licence.txt',
   'license-mit',
+  'license.mit',
+  'license-bsd',
+  'license.bsd',
 
   'example.js',
   'test.js',
