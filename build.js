@@ -2,33 +2,22 @@
 const markdownExtensions = require('markdown-extensions')
 const writeJsonFile = require('write-json-file')
 
-const markdownFileNames = [
-  'readme',
-  'changelog',
-  'history',
-  'contributing',
-  'code_of_conduct',
-  'issue_template',
-  'pull_request_template',
-]
-
 const safeIgnoreList = [
   // CI
   '.travis.yml',
   '.appveyor.yml',
+  'circle.yml',
+  '.coveralls.yml',
+  'wercker.yml',
 
   // Editors
   '.editorconfig',
 
-  // Docs
-  'license',
-  'license.txt',
-  'licence',
-  'licence.txt',
-
   // Git
   '.gitignore',
   '.gitattributes',
+  '.gitmodules',
+  '.gitkeep',
 
   // Package managers
   '.npmrc',
@@ -36,11 +25,18 @@ const safeIgnoreList = [
   'npm-shrinkwrap.json',
   'package-lock.json',
   'shrinkwrap.yaml',
+  'pnpmfile.js',
   'yarn.lock',
   '.yarnrc',
+  '.yarn-metadata.json',
+  '.yarn-integrity',
+  '.yarnclean',
+  'bower.json',
+  'npm-debug.log',
 
   // Linters
   '.eslintrc',
+  '.eslintrc.js',
   '.eslintingnore',
   '.jshintrc',
   'tslint.json',
@@ -48,20 +44,55 @@ const safeIgnoreList = [
   // Compilers
   'tsconfig.json',
   '.babelrc',
-]
 
-for (const markdownFileName of markdownFileNames) {
-  for (const markdownExtension of markdownExtensions) {
-    safeIgnoreList.push(`${markdownFileName}.${markdownExtension}`)
-  }
+  // RC files
+  '.flowconfig',
+  '.documentup.json',
+  '.istanbul.yml',
+  'mocha.opts',
+
+  'gulpfile.js',
+  'gruntfile.js',
+  'makefile',
+  '.ds_store',
+  '.tern-project',
+  'changes',
+  'authors',
+  'contributors'
+]
+.concat([
+  'readme',
+  'changelog',
+  'history',
+  'contributing',
+  'code_of_conduct',
+  'issue_template',
+  'pull_request_template',
+  'authors',
+  'changes',
+  'contributors',
+].reduce((acc, filename) => acc.concat(withAllMarkdownExtensions(filename)), []))
+
+function withAllMarkdownExtensions (filename) {
+  return markdownExtensions.map(markdownExtension => `${filename}.${markdownExtension}`)
 }
 
 writeJsonFile.sync('safeIgnoreList.json', safeIgnoreList, {indent: 2})
 
 const unsafeIgnoreList = [
+  // Docs
+  'license',
+  'license.txt',
+  'licence',
+  'licence.txt',
+  'license-mit',
+
   'example.js',
   'test.js',
-  'gulpfile.js',
 ]
+.concat([
+  'license',
+  'licence',
+].reduce((acc, filename) => acc.concat(withAllMarkdownExtensions(filename)), []))
 
 writeJsonFile.sync('unsafeIgnoreList.json', unsafeIgnoreList, {indent: 2})

@@ -6,6 +6,13 @@ const safeIgnorableFiles = new Set(safeIgnoreList)
 const safeIgnorableDirs = new Set([
   '.vscode',
   '.github',
+  '.idea',
+  '.vscode',
+  'coverage',
+	'.nyc_output',
+  '.circleci',
+  'doc',
+  'docs',
 ])
 const unsafeIgnorableFiles = new Set(unsafeIgnoreList)
 const unsafeIgnorableDirs = new Set([
@@ -13,6 +20,11 @@ const unsafeIgnorableDirs = new Set([
   'examples',
   'test',
   'tests',
+  '__tests__',
+  'powered-test',
+  'website',
+	'images',
+  'assets',
 ])
 
 module.exports = ignorable
