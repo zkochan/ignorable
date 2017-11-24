@@ -1,6 +1,6 @@
 {
   "name": "ignorable",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Detects whether a file in a package can be ignored",
   "keywords": [
     "ignore"
