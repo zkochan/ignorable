@@ -77,7 +77,7 @@ function withAllMarkdownExtensions (filename) {
   return markdownExtensions.map(markdownExtension => `${filename}.${markdownExtension}`)
 }
 
-writeJsonFile.sync('safeIgnoreList.json', safeIgnoreList, {indent: 2})
+writeJsonFile.sync('safeIgnoreList.json', safeIgnoreList.sort(), {indent: 2})
 
 const unsafeIgnoreList = [
   // Docs
@@ -95,4 +95,4 @@ const unsafeIgnoreList = [
   'licence',
 ].reduce((acc, filename) => acc.concat(withAllMarkdownExtensions(filename)), []))
 
-writeJsonFile.sync('unsafeIgnoreList.json', unsafeIgnoreList, {indent: 2})
+writeJsonFile.sync('unsafeIgnoreList.json', unsafeIgnoreList.sort(), {indent: 2})
