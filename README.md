@@ -37,7 +37,8 @@ Returns whether `true` if the file does not influence the functionality of the p
 
 ### `ignorable.safe(filename)`
 
-Same as `ignorable()` but does not return `true` for example files and test files.
+Safer than `ignorable()`. Does not return `true` for example files, test files, license files
+and other resources that might be dangerous to remove.
 
 ## License
 
