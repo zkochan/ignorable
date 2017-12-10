@@ -1,0 +1,12 @@
+# Assets
+/assets/
+/images/
+/website/
+
+# JS
+/example.js
+/test.js
+
+# Text
+/LICENCE*
+/LICENSE*

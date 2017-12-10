@@ -1,0 +1,86 @@
+# Build tools
+/gruntfile.js
+/gulpfile.js
+/Makefile
+
+# CI
+/.appveyor.yml
+/.circleci/**
+/.coveralls.yml
+/.travis.yml
+/circle.yml
+/wercker.yml
+
+# Compilers
+/.babelrc
+/.flowconfig
+/tsconfig.json
+
+# Docs
+/.documentup.json
+/doc/**
+/docs/**
+/example/**
+/examples/**
+
+# Editors
+/.editorconfig
+/.idea/**
+/.tern-project
+/.vscode/**
+
+# Git
+/.gitattributes
+/.gitignore
+/.gitkeep
+/.gitmodules
+/.keep
+
+# Linters
+/.eslintingnore
+/.eslintrc
+/.eslintrc.js
+/.jshintrc
+/tslint.json
+
+# OS
+/.DS_Store
+
+# Package managers
+/.bowerrc
+/.npmignore
+/.npmrc
+/.yarn-integrity
+/.yarn-metadata.json
+/.yarnclean
+/.yarnrc
+/bower.json
+/npm-debug.log
+/npm-shrinkwrap.json
+/package-lock.json
+/pnpmfile.js
+/shrinkwrap.yaml
+/yarn.lock
+
+# Tests
+/.istanbul.yml
+/.nyc_output/**
+/__tests__/**
+/coverage/**
+/mocha.opts
+/powered-test/**
+/test/**
+/tests/**
+
+# Text
+/.github/**
+/AUTHORS*
+/CHANGELOG*
+/CHANGES*
+/CODE_OF_CONDUCT*
+/CONTRIBUTING*
+/CONTRIBUTORS*
+/HISTORY*
+/ISSUE_TEMPLATE*
+/PULL_REQUEST_TEMPLATE*
+/README*
