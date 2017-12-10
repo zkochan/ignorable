@@ -1,6 +1,16 @@
 'use strict'
+const path = require('path');
 const test = require('tape')
-const ignorable = require('ignorable')
+const _ignorable = require('./index')
+
+function ignorable (filename) {
+  filename = filename.split('/').join(path.sep);
+  return _ignorable(filename);
+}
+ignorable.safe = function (filename) {
+  filename = filename.split('/').join(path.sep);
+  return _ignorable.safe(filename);
+}
 
 test('ignorable()', t => {
   t.throws(() => ignorable(1), 'Expected `filename` to be of type `string`, got `number`')
@@ -10,7 +20,6 @@ test('ignorable()', t => {
   t.true(ignorable('example.js'))
   t.true(ignorable('test/index.js'))
   t.true(ignorable('example/index.js'))
-  t.true(ignorable('example\\index.js'))
 
   t.end()
 })

@@ -1,73 +1,70 @@
 'use strict'
-const safeIgnoreList = require('./safeIgnoreList.json')
-const unsafeIgnoreList = require('./unsafeIgnoreList.json')
+const Minimatch = require('minimatch').Minimatch
+const fs = require('fs')
+const path = require('path')
 
-const safeIgnorableFiles = new Set(safeIgnoreList)
-const safeIgnorableDirs = new Set([
-  '.vscode',
-  '.github',
-  '.idea',
-  '.vscode',
-  'coverage',
-	'.nyc_output',
-  '.circleci',
-  'doc',
-  'docs',
-  'example',
-  'examples',
-  'test',
-  'tests',
-  '__tests__',
-  'powered-test',
-])
-const unsafeIgnorableFiles = new Set(unsafeIgnoreList)
-const unsafeIgnorableDirs = new Set([
-  'website',
-	'images',
-  'assets',
-])
+const safeIgnoreRules = _ignoreFileToRules('./safeIgnore')
+const unsafeIgnoreRules = _ignoreFileToRules('./unsafeIgnore')
 
 module.exports = ignorable
 module.exports.safe = safe
 
 function ignorable (filename) {
-  if (typeof filename !== 'string') {
-    throw new TypeError(`Expected \`filename\` to be of type \`string\`, got \`${typeof filename}\``);
-  }
-
-  filename = filename.toLowerCase()
-  const dir = _getRootDir(filename)
-
-  if (_safe(filename, dir)) {
-    return true
-  }
-  if (unsafeIgnorableFiles.has(filename)) {
+  if (safe(filename)) {
     return true
   }
 
-  if (!dir) return false
-
-  return unsafeIgnorableDirs.has(dir)
-}
-
-function _getRootDir (filename) {
-  let index = filename.indexOf('/')
-  if (index !== -1) return filename.substr(0, index)
-  index = filename.indexOf('\\')
-  if (index !== -1) return filename.substr(0, index)
-  return null
+  return !_keep(unsafeIgnoreRules, filename)
 }
 
 function safe (filename) {
   if (typeof filename !== 'string') {
-    throw new TypeError(`Expected \`filename\` to be of type \`string\`, got \`${typeof filename}\``);
+    throw new TypeError(`Expected \`filename\` to be of type \`string\`, got \`${typeof filename}\``)
   }
 
-  filename = filename.toLowerCase()
-  const dir = _getRootDir(filename)
-  return _safe(filename, dir)
+  return !_keep(safeIgnoreRules, filename)
 }
 
-function _safe (filename, dir) {
-  return Boolean(safeIgnorableFiles.has(filename) || dir && safeIgnorableDirs.has(dir))
+function _keep (rules, filename) {
+  if (filename[0] !== path.sep) {
+    filename = path.sep + filename
+  }
+
+  let keep = true
+  rules.forEach(function(rule) {
+    if (rule.comment || rule.empty) {
+      return
+    }
+    if (rule.negate === keep) {
+      return
+    }
+
+    const match = rule.match(filename)
+    if (!match) {
+      return
+    }
+
+    keep = rule.negate
+  })
+
+
+  return keep
+}
+
+function _ignoreFileToRules (filename) {
+  const contents = fs.readFileSync(filename, 'utf8')
+  const lines = contents.split(/\r?\n/)
+  const rules = lines.map(_ignoreLineToMinimatch)
+  return rules
+}
+
+function _ignoreLineToMinimatch (line) {
+  const opts = {
+    matchBase: true,
+    dot: true,
+    flipNegate: true,
+    nocase: true
+  }
+
+  return new Minimatch(line, opts)
 }
